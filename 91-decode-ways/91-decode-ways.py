@@ -28,8 +28,11 @@ class Solution:
             DP[1]=1
         
         for i in range(2,n+1):
-            DP[i] = 0
-            if s[i-1] != "0":
+            
+            if s[i-1] == "0":
+                DP[i] = 0
+                
+            else:
         
                 DP[i] +=DP[i-1]
             
