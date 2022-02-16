@@ -33,7 +33,7 @@ class Solution:
         
                 DP[i] +=DP[i-1]
             
-            if s[i-2] =="1" or (s[i-2]=="2" and s[i-1] in ["1","2","3","4","5","6","0"]):
+            if s[i-2] =="1" or (s[i-2]=="2" and s[i-1] in "0123456"):
                 DP[i] +=DP[i-2]
         
         return DP[n]
