@@ -30,7 +30,7 @@ class Solution:
         for i in range(2,n+1):
             
             if s[i-1] == "0":
-                DP[i] = 0
+                pass
                 
             else:
         
