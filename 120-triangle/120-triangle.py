@@ -8,7 +8,7 @@ class Solution:
         '''
         n = len(triangle)
         
-        DP= [[None] for i in range(n)]
+        DP= [None for i in range(n)]
         
         for row in range(n):
             DP[row] = [None]*(row+1)
