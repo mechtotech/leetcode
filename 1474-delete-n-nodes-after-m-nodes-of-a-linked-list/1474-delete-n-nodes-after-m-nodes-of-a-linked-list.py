@@ -10,32 +10,29 @@ class Solution:
         prev= sentinel
         curr = head
         
-        
         while curr:
-            index= 0
-            while curr and index !=m:
+            steps = 0 
+            while curr and steps < m:
+                steps+=1
                 prev = curr
-                curr = curr.next
-                index+=1
-            index = 0
+                curr=curr.next
+            
+            if curr is None:
+                return head
+            
             p = curr
-            while p and index != n:
-                p = p.next
-                index+=1
+            while p and steps < m+n:
+                p= p.next
+                steps+=1
             
             prev.next = p
             curr = p
         
         return sentinel.next
-            
+                
+"""
+_ _ _ _ _ _ _
+
+"""
         
-# first move prev and curr pointer to m & m+1 postion 
-# prev node is actually pointing sentinel
-# curr node is actually poinring to head
-
-# when curr is at m+1 postion we start a pointer p from curr.next to move to m+n+1 node
-# prev.next = p
-# curr= p
-
-
         
