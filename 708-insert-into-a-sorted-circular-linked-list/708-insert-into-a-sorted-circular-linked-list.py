@@ -8,46 +8,41 @@ class Node:
 
 class Solution:
     def insert(self, head: 'Optional[Node]', insertVal: int) -> 'Node':
-        node = ListNode(insertVal,None)
-        
+        node = Node(insertVal,None)
         if head is None:
-            node.next = node
-            return node
+            head = node
+            node.next = head
+            return head
         elif head.next is None:
             node.next = head
             head.next = node
-            
             return head
         
-        # find the first element -smallest and last element - largest value node
-        # insert the node - ascending order - node.val= insertVal > curr.val head -prev.next = node
-        #node = curr.next
-        # insertval is actaully largest prev.next = node & node.mext = 
         
-        prev = head
-        curr = head.next
         
-        while prev.val <= curr.val and curr!= head:
-            prev = prev.next
-            curr = curr.next
-        #prev is last node and curr is smallest node
-            
-        if insertVal > prev.val :
+        prev= head
+        curr= head.next
+        
+        while prev.val <= curr.val and curr != head:
+            prev= curr
+            curr=curr.next
+        
+        if curr.val >= node.val or prev.val < node.val:
             prev.next = node
             node.next = curr
             return head
-      
-        while insertVal > curr.val:
+        
+        while node.val > curr.val:
             prev = curr
             curr = curr.next
-            
-            
+           
+        
         prev.next = node
         node.next = curr
         
-        
         return head
-            
-            
-            
-            
+        
+        
+        
+        
+        
