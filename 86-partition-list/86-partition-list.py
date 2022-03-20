@@ -6,27 +6,38 @@
 class Solution:
     def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
         
+        
         sentinels = ListNode()
-        tails = sentinels
-        
         sentinell = ListNode()
-        taill = sentinell
+        tails= sentinels
+        taill=sentinell
         
-        curr = head
+        # pluck the node from original linked list
+        # add =>x to taill node and rest to tails
+        # tails.next = sentinell.next
+        #increment the curr on orginal 
+        #return sentinels.next 
         
+        curr  = head
         while curr:
             succ = curr.next
-            curr.next  = None
-            if curr.val < x:
+            curr.next = None
+            #work to be done
+            if curr.val <x:
                 tails.next = curr
-                tails =curr
+                tails = curr
+                curr =succ
             else:
                 taill.next = curr
-                taill =curr
-            
-            
-            curr = succ
+                taill = curr
+                curr =succ
         
         tails.next = sentinell.next
-        
         return sentinels.next
+                
+                
+            
+        
+        
+        
+        
