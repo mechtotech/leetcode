@@ -7,35 +7,34 @@ class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         
         h = head
-        t = head
-        
+        t= head
         
         while h.next and h.next.next:
             h = h.next.next
-            t = t.next
-        
-        curr= t.next
+            t= t.next
+            
+        new_head = t.next
         t.next = None
         
-        prev=None
+        prev = None
+        curr = new_head
         
         while curr:
             succ = curr.next
             curr.next = prev
-            prev = curr
-            
-            curr = succ
-        
-        curr = head
-        curr2 = prev
-        
-        
-        while curr and curr2:
-            if curr.val != curr2.val:
+            prev= curr
+            curr =succ
+        new_head = prev
+        while head and new_head:
+            if head.val != new_head.val:
                 return False
-            curr = curr.next
-            curr2=curr2.next
+            head= head.next
+            new_head = new_head.next
+            
         
         return True
             
+            
+            
+       
       
