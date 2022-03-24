@@ -10,13 +10,12 @@ class Solution:
     def levelOrderBottom(self, root: Optional[TreeNode]) -> List[List[int]]:
         if root is None:
             return []
-        result = deque()
-        q=deque()
+        result =deque()
+        q = deque()
         q.append(root)
-        while len(q)!=0:
-            numnodes =len(q)
-            temp=[]
-            for i in range(numnodes):
+        while len(q) >0:
+            temp =[]
+            for _ in range(len(q)):
                 node = q.popleft()
                 temp.append(node.val)
                 if node.left:
@@ -24,7 +23,9 @@ class Solution:
                 if node.right:
                     q.append(node.right)
             result.appendleft(temp)
+        
         return result
+            
             
                     
         
