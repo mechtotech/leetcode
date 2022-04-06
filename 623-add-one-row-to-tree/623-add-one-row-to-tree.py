@@ -9,7 +9,7 @@ class Solution:
         if depth == 1:
             newroot = TreeNode(val)
             newroot.left = root
-            root = newroot
+            #root = newroot
             return newroot
         
         
