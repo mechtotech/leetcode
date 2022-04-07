@@ -21,7 +21,7 @@ class Solution:
                     return False
                 if nl.right and nr.left:
                     q.append((nl.right,nr.left))
-                elif  nr.left or nl.right :
+                elif  (nr.left is None and nl.right) or (nl.right is None and nr.left) :
                     return False
                 
                 
