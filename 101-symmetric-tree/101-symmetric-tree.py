@@ -17,7 +17,7 @@ class Solution:
                 (nl,nr) = q.popleft()
                 if nl.left and nr.right:
                     q.append((nl.left,nr.right))
-                elif nl.left  or nr.right:
+                elif (nl.left is None and nr.right)  or (nl.left and nr.right is None):
                     return False
                 if nl.right and nr.left:
                     q.append((nl.right,nr.left))
