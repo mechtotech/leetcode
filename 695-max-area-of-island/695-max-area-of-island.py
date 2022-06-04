@@ -29,6 +29,18 @@ class Solution:
                         q.append((r,c))
                         area+=1
             return area
+        def dfs(row,col):
+            visited[row][col] =1
+            area = 1
+            for r,c in neighbor(row,col):
+                    if visited[r][c]==-1 and grid[r][c] ==1:
+                        visited[r][c] =1
+                        area+=dfs(r,c)
+            return area
+            
+            
+            
+            
         
         maxarea = 0
         for row in range(len(grid)):
