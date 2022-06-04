@@ -46,7 +46,7 @@ class Solution:
         for row in range(len(grid)):
             for col in range(len(grid[0])):
                 if grid[row][col] == 1 and visited[row][col]==-1:
-                    area=bfs(row,col)
+                    area=dfs(row,col)
                     maxarea = max(maxarea,area)
         return maxarea
                     
