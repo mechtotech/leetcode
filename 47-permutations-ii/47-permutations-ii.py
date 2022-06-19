@@ -1,24 +1,31 @@
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
-        nums.sort()
+        
         result = []
+        
         def helper(s,i,slate):
-            if i == len(s):
+            if i ==len(s):
                 result.append(slate[:])
                 return
             
             
-            m ={}
+            m={}
             for pick in range(i,len(s)):
                 if s[pick] not in m:
-                    m[s[pick]] =1
-                    s[i],s[pick] = s[pick],s[i]
+                    m[s[pick]] = 1
+                    s[pick],s[i] = s[i],s[pick]
                     slate.append(s[i])
                     helper(s,i+1,slate)
                     slate.pop()
-                    s[i],s[pick] = s[pick],s[i]
+                    s[pick],s[i] = s[i],s[pick]
+            
         helper(nums,0,[])
         return result
+                
+                
+                    
+                
+        
                     
                     
 
