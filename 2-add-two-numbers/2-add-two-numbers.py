@@ -7,51 +7,57 @@ class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         
         
+        sentinel = ListNode("dummy")
+        tail = sentinel
+        
         curr1 = l1
         curr2 = l2
         
-        sentinel = ListNode("dummy")
-        tail = sentinel
         carry = 0
         while curr1 and curr2:
-            value = curr1.val + curr2.val + carry
-            if value > 9:
+            
+            sum = curr1.val+ curr2.val +carry
+            newnode = ListNode(sum%10)
+            
+            if sum > 9:
                 carry = 1
             else:
-                carry = 0
-            node = ListNode(value%10,None)
-            tail.next = node
+                carry =0
+            tail.next = newnode
             tail = tail.next
+            
             curr1 = curr1.next
             curr2 = curr2.next
-        
         while curr1:
-            value = curr1.val + carry
-            if value > 9:
+            
+            sum = curr1.val+carry
+            newnode = ListNode(sum%10)
+            if sum > 9:
                 carry = 1
             else:
-                carry = 0
-            
-            node = ListNode(value%10,None)
-            tail.next = node
+                carry =0
+            tail.next = newnode
             tail = tail.next
+            
             curr1 = curr1.next
-            
         while curr2:
-            value = curr2.val + carry
-            if value > 9:
+            
+            sum = curr2.val+carry
+            newnode = ListNode(sum%10)
+            if sum > 9:
                 carry = 1
             else:
-                carry = 0
-            node = ListNode(value%10,None)
-            tail.next = node
+                carry =0
+            tail.next = newnode
             tail = tail.next
+            
             curr2 = curr2.next
         
-        if carry != 0:
-            node = ListNode(carry,None)
-            tail.next = node
+        if carry == 1:
+            newnode = ListNode(carry)
+            tail.next = newnode
             tail = tail.next
+        
         
         return sentinel.next
             
@@ -59,8 +65,5 @@ class Solution:
             
             
             
-        
-        
-        
-        
-        
+
+            
