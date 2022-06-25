@@ -28,13 +28,29 @@ class Solution:
                     visited[r][c] =1
                     area+=dfs(r,c)
             return area
+        def bfs(row,col):
+            visited[row][col] =1
+            q= deque()
+            q.append((row,col))
+            area =1
+            while len(q) > 0:
+                r,c = q.popleft()
+                
+                for x,y in neighbor(r,c):
+                    if visited[x][y] == -1 and grid[x][y] == 1:
+                        visited[x][y] =1
+                        q.append((x,y))
+                        area+=1
+            return area
+                        
+                        
         
         
         maxarea = 0 
         for row in range(len(grid)):
             for col in range(len(grid[0])):
                 if visited[row][col] == -1 and grid[row][col]==1:
-                    area = dfs(row,col) 
+                    area = bfs(row,col) 
                     maxarea = max(maxarea,area)
         return maxarea
     
