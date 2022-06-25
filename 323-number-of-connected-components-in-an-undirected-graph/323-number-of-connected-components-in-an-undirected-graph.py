@@ -15,12 +15,25 @@ class Solution:
                 if visited[i] == -1:
                     visited[i] = 1
                     dfs(i)
+        def bfs(s):
+            q = deque()
+            q.append(s)
+            visited[s] =1
+            while len(q) > 0:
+                node = q.popleft()
+                for i in adjlist[node]:
+                    if visited[i] == -1:
+                        visited[i] =1
+                        q.append(i)
+            
+            
+            
         
         count = 0
         for v in range(n):
             if visited[v] == -1:
                 count+=1
-                dfs(v)
+                bfs(v)
                 
         return count
                 
