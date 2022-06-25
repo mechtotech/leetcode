@@ -16,39 +16,38 @@ class Solution:
                 result.append((row,col+1))
             return result
         
-        def bfs(row,col):
-            visited[row][col] =1
-            q = deque()
-            q.append((row,col))
-            area = 1
-            while len(q) >0:
-                (i,j) = q.popleft()
-                for r,c in neighbor(i,j):
-                    if visited[r][c]==-1 and grid[r][c] ==1:
-                        visited[r][c] =1
-                        q.append((r,c))
-                        area+=1
-            return area
+        #def bfs(row,col):
+            #visited[row]
+            
+           
         def dfs(row,col):
             visited[row][col] =1
             area = 1
             for r,c in neighbor(row,col):
-                    if visited[r][c]==-1 and grid[r][c] ==1:
-                        visited[r][c] =1
-                        area+=dfs(r,c)
+                if visited[r][c] == -1 and grid[r][c]==1:
+                    visited[r][c] =1
+                    area+=dfs(r,c)
             return area
+        
+        
+        maxarea = 0 
+        for row in range(len(grid)):
+            for col in range(len(grid[0])):
+                if visited[row][col] == -1 and grid[row][col]==1:
+                    area = dfs(row,col) 
+                    maxarea = max(maxarea,area)
+        return maxarea
+    
+    
+    
+                    
+            
             
             
             
             
         
-        maxarea = 0
-        for row in range(len(grid)):
-            for col in range(len(grid[0])):
-                if grid[row][col] == 1 and visited[row][col]==-1:
-                    area=dfs(row,col)
-                    maxarea = max(maxarea,area)
-        return maxarea
+        
                     
             
             
