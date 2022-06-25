@@ -22,31 +22,34 @@ class Solution:
                     if parent[s] != i:
                         return True
             return False
-        def bfs(s):
-            visited[s] = 1
-            q =deque()
-            q.append(s)
+        
+        def bfs(node):
+            visited[node] = 1
+            q = deque()
+            q.append(node)
             while len(q) > 0:
-                node = q.popleft()
-                for i in adjlist[node]:
-                    if visited[i] == -1:
-                        visited[i] =1
-                        parent[i] = s
-                        q.append(i)
+                s= q.popleft()
+                for neighbor in adjlist[s]:
+                    if visited[neighbor] ==-1:
+                        visited[neighbor] =1
+                        parent[neighbor] = s
+                        q.append(neighbor)
+                        
                     else:
-                        if parent[s] != i:
+                        if parent[s] != neighbor:
                             return True
             return False
         
         count = 0
+        
         for v in range(n):
-            if visited[v] == -1:
-                
+            if visited[v] ==-1:
                 count+=1
-                if count > 1:
+                if count >1:
                     return False
-                if dfs(v):
+                if bfs(v) is True:
                     return False
+        
         return True
             
         
