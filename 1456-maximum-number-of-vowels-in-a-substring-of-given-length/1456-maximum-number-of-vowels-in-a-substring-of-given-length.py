@@ -7,16 +7,20 @@ class Solution:
         
         for i in range(k):
             if s[i] in vowels:
-                countvowels +=1
+                countvowels+=1
+        maxvowels = countvowels
         
-        maxvowel = countvowels
         for i in range(k,len(s)):
             if s[i] in vowels:
-                countvowels +=1
+                countvowels+=1
             if s[i-k] in vowels:
                 countvowels-=1
-            maxvowel= max(countvowels,maxvowel)
-        return maxvowel
+            maxvowels= max(maxvowels,countvowels)
+        
+        return maxvowels
+
+        
+            
     
         
                 
