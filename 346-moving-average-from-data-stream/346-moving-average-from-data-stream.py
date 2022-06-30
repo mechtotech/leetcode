@@ -9,13 +9,16 @@ class MovingAverage:
 
     def next(self, val: int) -> float:
         
-        self.total+=val
         self.q.append(val)
+        self.total +=val
+        
         if len(self.q) > self.maxsize:
             popped = self.q.popleft()
             self.total -= popped
         
+        
         return self.total/len(self.q)
+            
     
         
         
