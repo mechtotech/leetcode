@@ -23,18 +23,34 @@ class Solution:
         if m_s1 == m_s2:
             return True
         
+        
         for i in range(k,len(s2)):
             if s2[i] in m_s2:
                 m_s2[s2[i]] +=1
             else:
-                m_s2[s2[i]] =1
-            m_s2[s2[i-k]] -=1
+                m_s2[s2[i]] = 1
+            m_s2[s2[i-k]]-=1
             if m_s2[s2[i-k]] == 0:
-                del m_s2[s2[i-k]]
+                
+                del m_s2[s2[i-k]] 
             
-            if m_s1 == m_s2:
+            if m_s2 == m_s1:
                 return True
         return False
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+
             
             
