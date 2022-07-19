@@ -4,37 +4,38 @@ class Solution:
         if len(nums) == 0:
             return [-1,-1]
         
-        start = 0
-        end = len(nums)-1
+        
+        i = 0
+        j = len(nums)-1
         first = -1
         
-        while start <= end:
-            mid = (start+end)//2
-            
-            if nums[mid] > target:
-                end = mid-1
-            elif nums[mid] < target:
-                start = mid+1
+        
+        while i <= j:
+            mid = (i+j)//2
+            if nums[mid] < target:
+                i = mid+1
+            elif nums[mid] >target:
+                j = mid -1
             else:
                 first = mid
-                end = mid-1
+                j = mid-1
         
-        startl = 0
-        endl = len(nums)-1
+        i = 0
+        j = len(nums)-1
         last = -1
-        while startl <= endl:
-            mid = (startl+endl)//2
-            
-            if nums[mid] > target:
-                endl = mid-1
-            elif nums[mid] < target:
-                startl = mid+1
+        
+        while i <= j:
+            mid = (i+j)//2
+            if nums[mid] < target:
+                i = mid+1
+            elif nums[mid] > target:
+                j = mid-1
             else:
                 last = mid
-                startl = mid+1
-        
+                i = mid+1
         return [first,last]
-                
+        
+        
         
         
         
