@@ -11,11 +11,13 @@ class Solution:
         DP[1] = 1
         DP[2]  = 2
         '''
-        if n == 1 or n == 2:
+        if n ==1 or n==2:
             return n
-        DP=[0 for i in range(n+1)]
-        DP[1] = 1
-        DP[2]  = 2
+        
+        DP= [0]*(n+1)
+        DP[1] =1
+        DP[2] =2
+        
         for i in range(3,n+1):
             DP[i] = DP[i-1]+DP[i-2]
         
