@@ -13,22 +13,15 @@ class Solution:
         
         def dfs(node,target,slate):
             
+            
             slate.append(node.val)
             
-            suffixsum = 0
+            subsum = 0
             
             for i in range(len(slate)-1,-1,-1):
-                suffixsum += slate[i]
-                if suffixsum == target:
-                    count[0] +=1
-            
-        
-                
-                
-            
-            
-            if node.left is None and node.right is None:
-                pass
+                subsum +=slate[i]
+                if subsum == target:
+                    count[0]+=1
             
             if node.left:
                 dfs(node.left,target,slate)
@@ -36,10 +29,8 @@ class Solution:
                 dfs(node.right,target,slate)
                 
             slate.pop()
-        
         dfs(root,targetSum,[])
         return count[0]
-            
         
         
         
