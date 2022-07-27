@@ -4,45 +4,42 @@ class Solution:
         if len(nums) == 0:
             return [-1,-1]
         
-        
-        i = 0
-        j = len(nums)-1
+        start = 0
+        end = len(nums)-1
         first = -1
         
-        
-        while i <= j:
-            mid = (i+j)//2
-            if nums[mid] < target:
-                i = mid+1
-            elif nums[mid] >target:
-                j = mid -1
-            else:
-                first = mid
-                j = mid-1
-        
-        i = 0
-        j = len(nums)-1
-        last = -1
-        
-        while i <= j:
-            mid = (i+j)//2
-            if nums[mid] < target:
-                i = mid+1
-            elif nums[mid] > target:
-                j = mid-1
-            else:
-                last = mid
-                i = mid+1
-        return [first,last]
-        
-        
-        
-        
-        
-        
-        
-        
+        while start <= end:
             
+            mid = (start+end)//2
+            
+            if nums[mid] == target:
+                first = mid
+                end = mid-1
+            
+            elif nums[mid] > target:
+                end = mid-1
+            else:
+                start = mid+1
+            
+        start = 0
+        end = len(nums)-1
+        last =-1
+        while start <=end:
+            mid = (start+end)//2
+            
+            if nums[mid] == target:
+                last = mid
+                start = mid+1
+            elif nums[mid] > target:
+                end = mid-1
+            else:
+                start = mid+1
+            
+        return [first,last]
+                
+                
+        
+
             
             
             
