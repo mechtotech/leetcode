@@ -2,35 +2,36 @@ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         
         nums.sort()
-        output = []
+        output =[]
         
         
-        
-        def function(nums,x):
+        def function(nums,k):
             
-            i = x+1
+            
+            i = k+1
             j = len(nums)-1
             
             while i < j:
                 
-                if nums[x]+nums[i]+nums[j] == 0:
-                    
-                    output.append([nums[x],nums[i],nums[j]])
+                if nums[i]+nums[j]+nums[k] == 0:
+                    output.append([nums[i],nums[j],nums[k]])
                     i+=1
                     j-=1
-                    while i < j and nums[i] == nums[i - 1]:
-                        i += 1
-                    
-                elif nums[x]+nums[i]+nums[j] > 0:
+                    while i < j and nums[i] == nums[i-1]:
+                        i+=1
+                elif nums[i]+nums[j]+nums[k] > 0:
                     j-=1
                 else:
                     i+=1
-        for x in range(len(nums)):
-            
-            if x == 0 or nums[x-1] != nums[x]:
-                function(nums,x)
         
+        for k in range(len(nums)):
+            
+            if k == 0 or nums[k] != nums[k-1]:
+                function(nums,k)
         return output
+        
+        
+        
                     
                     
         
