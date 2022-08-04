@@ -33,18 +33,40 @@ class Solution:
         
         curr = head
         curr1 = head.next
-        newhead = head.next
+       
         
-        while curr and curr1:
-            curr.next = curr.next.next
-            if curr.next is not None:
+        sentinelo = Node(-1000)
+        tailo = sentinelo
+        sentineln = Node(-1000)
+        tailn = sentineln
+        
+        index = 0
+        while curr:
+            
+            if index%2 == 0:
+                tailo.next = curr
+                tailo = curr
                 
-                curr1.next = curr1.next.next
+                curr = curr.next
+                tailo.next = None
+                index+=1
+                
             else:
-                curr1.next = None
-            curr1 = curr1.next
-            curr = curr.next
-        return newhead
+                tailn.next = curr
+                tailn = curr
+                #tailn.next = None
+                curr = curr.next
+                tailn.next = None
+                index+=1
+        return sentineln.next
+        
+                
+            
+            
+        
+        
+        
+        
             
             
         
